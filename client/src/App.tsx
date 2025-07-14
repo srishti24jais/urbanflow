@@ -1,9 +1,9 @@
-// client/src/App.tsx
+// src/App.tsx
 import React, { useEffect, useState } from 'react';
-import { onAuthStateChanged, signOut, User } from 'firebase/auth';
+import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
 import { auth } from './firebase';
-import Login from './Login';
-import Dashboard from './Dashboard';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -31,7 +31,7 @@ const App: React.FC = () => {
         Logout
       </button>
 
-      <Dashboard /> {/* 🚦 Show traffic control UI */}
+      <Dashboard />
     </div>
   );
 };
