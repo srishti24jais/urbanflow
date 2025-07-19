@@ -22,11 +22,137 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
+/* Dashboard Styles */
+.dashboard-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #23272f;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding: 40px 32px;
+}
+
+.dashboard-header {
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dashboard-title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0072ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.logout-btn {
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: background 0.2s;
+}
+.logout-btn:hover {
+  background: linear-gradient(90deg, #dd2476, #ff512f);
+}
+
+.map-section {
+  margin-top: 32px;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  margin-top: 16px;
+}
+
+.signal-section {
+  margin-top: 32px;
+}
+
+.signal-card {
+  background: #282c34;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-left: 6px solid #0072ff;
+}
+
+.signal-btn {
+  margin-right: 10px;
+  margin-top: 8px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.signal-btn.green {
+  background: #27ae60;
+  color: #fff;
+}
+.signal-btn.green:hover {
+  background: #219150;
+}
+.signal-btn.yellow {
+  background: #f1c40f;
+  color: #23272f;
+}
+.signal-btn.yellow:hover {
+  background: #d4ac0d;
+}
+.signal-btn.red {
+  background: #e74c3c;
+  color: #fff;
+}
+.signal-btn.red:hover {
+  background: #c0392b;
+}
+
+.auto-mode-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+body {
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #f3f3f3;
+  margin: 0;
   min-height: 100vh;
 }
 
@@ -57,7 +183,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color:[] #ffffff;
   }
   a:hover {
     color: #747bff;

@@ -1,38 +1,28 @@
-// src/App.tsx
-import React, { useEffect, useState } from 'react';
-import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
-import { auth } from './firebase';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
+import PrivateRoute from './components/PrivateRoute';
 
-const App: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  const handleLogout = () => {
-    signOut(auth);
-  };
-
-  if (!user) {
-    return <Login />;
-  }
-
+const App = () => {
   return (
-    <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
-      <h1>UrbanFlow Admin Dashboard</h1>
-      <p>Welcome, {user.email}</p>
-      <button onClick={handleLogout} style={{ marginBottom: '1rem' }}>
-        Logout
-      </button>
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
-      <Dashboard />
-    </div>
+        {/* Protected Route */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 
